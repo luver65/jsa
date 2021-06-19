@@ -1,0 +1,120 @@
+/*#####################################################################################
+  NAME: JSAlib-v1.4.css
+  AUTHOR: Luciano Veronese
+  DATE: JULY 2020
+  VERSION: 1.4
+  DESCRIPTION: common CSS styles used by the objects of the ARCO library
+  #####################################################################################*/
+
+/* Common imports across the ARCO custom objects */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://use.fontawesome.com/releases/v5.10.1/css/all.css");
+
+/*-------------------------
+        DFL TOOLTIP
+-------------------------*/
+.ArcoTooltip {
+    --ToolTipMinWidth: 32rem;
+    --ToolTipBackgroundColor: rgb(67, 67, 67); /* Beware this variable is used in the DFL code */
+    --ToolTipBorderColor: rgb(37, 37, 37);
+    --ToolTipBorderWidth: 0.01rem;
+    --ToolTipTextSize: 0.8rem;
+    --ToolTipTextColor: #EEE;
+}
+
+.ArcoTooltip {
+    position: relative;
+    overflow: hidden;
+}
+
+.ArcoTooltip:hover {
+    overflow: visible;
+}
+
+.ArcoTooltip:hover .ArcoTooltip-content {
+    opacity: 1;
+}
+
+.ArcoTooltip .ArcoTooltip-content {
+    background: var(--ToolTipBackgroundColor);
+    border-width: var(--ToolTipBorderWidth);
+    border-color: var(--ToolTipBorderColor);
+    border-style: solid;
+    border-radius: 5px;
+    color: var(--ToolTipTextColor);
+    font-size: var(--ToolTipTextSize);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    max-width: 40rem;
+    min-width: var(--ToolTipMinWidth);
+    padding: 0.9rem;
+    position: absolute;
+    opacity: 0;
+    transition: all .5s ease;
+    text-align: left;
+}
+
+.ArcoTooltip .ArcoTooltip-content::after {
+    background: var(--ToolTipBackgroundColor);
+    content: "";
+    height: 10px;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 10px;
+    z-index: -99!important;
+}
+
+.ArcoTooltip.top .ArcoTooltip-content {
+    bottom: calc(100% + 1.5rem);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.ArcoTooltip.top .ArcoTooltip-content::after {
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+}
+
+
+/*-------------------------
+        ARCO SPINNER
+-------------------------*/
+.arco-spinner {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid #eb6020;
+    border-top: 2px solid #004c94;
+    border-bottom: 2px solid #004c94;
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin linear infinite;
+    margin: auto;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
